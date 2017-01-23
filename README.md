@@ -1,1 +1,1 @@
-# bluebox_fluentd
+# docker-fluentd
