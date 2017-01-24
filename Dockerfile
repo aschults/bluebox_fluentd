@@ -16,5 +16,6 @@ ADD lib.sh /
 
 #ADD liveness_check.sh /
 
+USER root
 WORKDIR /
 ENTRYPOINT sh start.sh
