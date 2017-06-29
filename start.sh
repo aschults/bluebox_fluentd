@@ -1,9 +1,10 @@
 set -e
 . lib.sh
 
+confbase=$rootdir/fluentd/etc
 confdir=$rootdir/fluentd/etc/conf.d
 conf_gen=$vardir/fluentd/etc/conf_generated.d
-export confdir etcdir
+export confdir etcdir confbase
 
 for f in `ls $rootdir/fluentd/etc/start.d`  ; do
   fn=$rootdir/fluentd/etc/start.d/$f

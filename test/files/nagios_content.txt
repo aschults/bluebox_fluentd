@@ -1,0 +1,1 @@
+cmd_typ=30&cmd_mod=2&host={host}&service={message[service]}&plugin_state={message[status]}&plugin_output=M+{message[text]}&btnSubmit=Commit

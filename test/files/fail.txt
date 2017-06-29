@@ -1,0 +1,3 @@
+{"host":"proxy","ident":"url_fwd","pid":"25034","message":"{\"serxxxvice\":\"Squid+responsiveness\",\"status\":1,\"text\":\"some_msg\"}","severity":"notice","last_fluent_host":"5879ebe5a9eb"}
+{"host":"srv","ident":"url_fwd","pid":"25034","message":"{\"service:\"DNS+check\",\"status\":2,\"text\":\"some_msg2\"}","severity":"notice","last_fluent_host":"5879ebe5a9eb"}
+{"host":"srv" "ident":"url_fwd","pid":"25034","message":"{\"service:\"DNS+check\",\"status\":2,\"text\":\"some_msg2\"}","severity":"notice","last_fluent_host":"5879ebe5a9eb"}
