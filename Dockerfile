@@ -8,8 +8,8 @@ RUN pip install requests
 EXPOSE 24224 5140
 EXPOSE 5140/udp
 
-RUN mkdir -p /fluentd/log /fluentd/log_sources /fluentd/etc/conf.d /fluentd/etc/start.d
-VOLUME ["/fluentd/log","/fluentd/log_sources"]
+RUN mkdir -p /fluentd/log /fluentd/log_sources /fluentd/etc/conf.d /fluentd/etc/start.d /fluentd/etc/conf_custom.d
+VOLUME ["/fluentd/log","/fluentd/log_sources", "/fluentd/etc/conf_custom.d"]
 
 COPY url_fwd.py nagios_cmd.txt /fluentd/etc/
 COPY fluent.conf /fluentd/etc/

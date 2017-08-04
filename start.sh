@@ -3,8 +3,10 @@ set -e
 
 confbase=$rootdir/fluentd/etc
 confdir=$rootdir/fluentd/etc/conf.d
+confdir2=$rootdir/fluentd/etc/conf_custom.d
 conf_gen=$vardir/fluentd/etc/conf_generated.d
-export confdir etcdir confbase
+conf_gen2=$vardir/fluentd/etc/conf_custom_generated.d
+export confdir etcdir confbase confdir2 conf_gen2
 
 for f in `ls $rootdir/fluentd/etc/start.d`  ; do
   fn=$rootdir/fluentd/etc/start.d/$f
@@ -15,10 +17,6 @@ for f in `ls $rootdir/fluentd/etc/start.d`  ; do
   fi 
 done
 
-if ! [ -d $conf_gen ] ; then
-  rm -rf $conf_gen
-fi
-mkdir -p $conf_gen
 
 with_file() {
   b="${1%%.*}"
@@ -27,6 +25,19 @@ with_file() {
   fi
   eval "[ -n \"\$$b\" ]"
 }
+
+if ! [ -d $conf_gen ] ; then
+  rm -rf $conf_gen
+fi
+mkdir -p $conf_gen
+
+if ! [ -d $conf_gen2 ] ; then
+  rm -rf $conf_gen2
+fi
+mkdir -p $conf_gen2
+
+SELECT_FILE_HANDLER=
+expand_conf $confdir2 $conf_gen2
 
 SELECT_FILE_HANDLER=with_file
 expand_conf $confdir $conf_gen
