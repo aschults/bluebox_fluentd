@@ -140,9 +140,12 @@ class RequestHandler(object):
             content_expanded = self.fmt.format(self.content_format, **data)
 
         if self.verbose:
-            print data
-            print expanded_url
-            print content_expanded
+            sys.stderr.write(str(data))
+            sys.stderr.write("\n")
+            sys.stderr.write(str(expanded_url))
+            sys.stderr.write("\n")
+            sys.stderr.write(str(content_expanded))
+            sys.stderr.write("\n")
 
         return requests.request(
             self.method, expanded_url, headers=self.headers, data=content_expanded)
@@ -175,8 +178,8 @@ def main():
                         "HTTP successful but does not contain re. Content:\n{}".
                         format(resp.text))
             except Exception as e:
-                print e
-
+                sys.stderr.write(str(e))
+                sys.stderr.write("\n")
 
 if __name__ == "__main__":
     main()
